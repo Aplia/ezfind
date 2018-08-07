@@ -25,6 +25,19 @@ structures from previous searches and, during indexing, updates these as well.
 Therefore, the more the search engine is used, the faster it becomes.
 
 
+Docker
+-------------
+When used with Docker cores are expected to be located in '/opt/solr/cores'.
+Index is stored in '/opt/solr/data'.
+
+
+### Usage
+
+```
+docker run --name myezfind -p 8983:8983 -v mycores:/opt/solr/cores aplia/ezfind
+```
+
+
 Issue tracker
 -------------
 Submitting bugs, improvements and stories is possible on https://jira.ez.no/browse/EZP.
