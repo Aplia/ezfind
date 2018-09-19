@@ -1929,7 +1929,7 @@ class ezfeZPSolrQueryBuilder
      * Used to pass back some data to the search engine.
      *
      * @var Object
-     * @see ezfeZPSolrQueryBuilder::ezfeZPSolrQueryBuilder
+     * @see ezfeZPSolrQueryBuilder::__construct
      */
     protected $searchPluginInstance;
 
