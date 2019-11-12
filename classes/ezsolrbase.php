@@ -40,6 +40,7 @@ class eZSolrBase
         //$this->SearchServerURI = $baseURI;
         $this->SolrINI = eZINI::instance( 'solr.ini' );
         $iniSearchServerURI = $this->SolrINI->variable( 'SolrBase', 'SearchServerURI' );
+
         if ( $baseURI !== false )
         {
             $this->SearchServerURI = $baseURI;
@@ -53,7 +54,6 @@ class eZSolrBase
         {
             $this->SearchServerURI = 'http://localhost:8983/solr';
         }
-
     }
 
     /*!
