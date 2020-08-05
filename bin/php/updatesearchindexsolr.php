@@ -432,12 +432,17 @@ class ezfUpdateSearchIndexSolr
                 }
 
                 //pass false as we are going to do a commit at the end
-                $result = $searchEngine->addObject( $object, false, $this->commitWithin * 1000 );
-                if ( !$result )
-                {
-                    $this->CLI->error( ' Failed indexing ' . $object->attribute('class_identifier') .  ' object with ID ' . $object->attribute( 'id' ) );
+                try {
+                    $result = $searchEngine->addObject( $object, false, $this->commitWithin * 1000 );
+                    if ( !$result )
+                    {
+                        $this->CLI->error( ' Failed indexing ' . $object->attribute('class_identifier') .  ' object with ID ' . $object->attribute( 'id' ) );
+                    }
+                    ++$count;
+                } catch (\Exception $e) {
+                    $this->CLI->error( ' Failed indexing ' . $object->attribute('class_identifier') .  ' object with ID ' . $object->attribute( 'id' ) . ". " . get_class( $e ) . ": " . explode( "\n", $e->getMessage() )[0] );
+                    ++$count;
                 }
-                ++$count;
             }
         }
 
