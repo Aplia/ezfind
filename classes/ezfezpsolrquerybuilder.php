@@ -611,7 +611,7 @@ class ezfeZPSolrQueryBuilder
                     {
                         // Get internal field name.
                         $baseName = eZSolr::getFieldName( $baseName );
-                        $processedBoostFunctions['fields'][] = $baseName . '^' . $boostValue;
+                        $processedBoostFunctions['fields'][$baseName] = $baseName . '^' . $boostValue;
                     }
             }
         }
