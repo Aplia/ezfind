@@ -63,7 +63,12 @@ class ezfSolrDocumentFieldBase
 
 
 
-        $metaData = $this->ContentObjectAttribute->metaData();
+        try {
+            $metaData = $this->ContentObjectAttribute->metaData();
+        } catch (Exception $e) {
+            eZDebug::writeNotice( "Exception while fetching field data: " . get_class($e) . ": " . $e->getMessage()  , __METHOD__ );
+            return array();
+        }
         $processedMetaDataArray = array();
         if ( is_array( $metaData ) )
         {
